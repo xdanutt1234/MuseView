@@ -4,7 +4,7 @@
 
 ## Descriere
 Aplicatie desktop care faciliteaza alegerea si rezervarea unui sejur in functie de locatie, pret, rating, servicii oferite si alte criterii.
-Aplicatia o sa per
+Aplicatia o sa permita cautarea sejururilor dupa locatie (oras, tara, continent), filtrarea rezultatelor dupa criterii, cautarea sejururilor pe harta, oferirea de ratinguri (in cazul in care persoana a fost deja intr-un sejur oferit de agentie).
 
 
 ## Obiective
@@ -16,6 +16,7 @@ Aplicatia o sa per
     - In functie de locatie
     - In functie de alte criterii
 * Criterii de filtrare a intrarilor
+* Ratings
 * Harta cu sejururi
 
 ## Arhitectura
