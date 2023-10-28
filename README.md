@@ -3,7 +3,7 @@
 ### Vladu Marian-Dumitru
 
 ## Descriere
-Aplicatie desktop care faciliteaza alegerea si rezervarea unui sejur in functie de locatie, pret, rating, servicii oferite si alte criterii.
+Aplicatie desktop care faciliteaza alegerea si rezervarea unui sejur in functie de locatie, pret, rating, servicii oferite si alte criterii cu interfata estetica/placuta la vedere.
 Aplicatia o sa permita cautarea sejururilor dupa locatie (oras, tara, continent), filtrarea rezultatelor dupa criterii, cautarea sejururilor pe harta, oferirea de ratinguri (in cazul in care persoana a fost deja intr-un sejur oferit de agentie).
 
 
