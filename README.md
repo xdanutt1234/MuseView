@@ -1,20 +1,19 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/0JY_4nJU)
-# Titlu proiect
-### Student(i)
+# Agentie de turism
+### Vladu Marian-Dumitru
 
 ## Descriere
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+Aplicatie desktop care faciliteaza alegerea si rezervarea unui sejur in functie de locatie, pret, rating, servicii oferite si alte criterii.
+
 
 ## Obiective
-Lorem ipsum
 
-* ob1
-* ob2
-* ob3
-    - sob31
-    - sob32
-    - ...
-* ....
+* Lista cu sejururi
+* Rezervare
+* Search bar
+    - In functie de locatie
+    - In functie de alte criterii
+* Criterii de filtrare a intrarilor
 
 ## Arhitectura
 Lorem ipsum ...
