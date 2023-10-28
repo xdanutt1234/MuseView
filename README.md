@@ -4,16 +4,19 @@
 
 ## Descriere
 Aplicatie desktop care faciliteaza alegerea si rezervarea unui sejur in functie de locatie, pret, rating, servicii oferite si alte criterii.
+Aplicatia o sa per
 
 
 ## Obiective
 
 * Lista cu sejururi
 * Rezervare
+    - Anulare rezervare
 * Search bar
     - In functie de locatie
     - In functie de alte criterii
 * Criterii de filtrare a intrarilor
+* Harta cu sejururi
 
 ## Arhitectura
 Lorem ipsum ...
