@@ -21,7 +21,7 @@ Aplicatia o sa permita cautarea sejururilor dupa locatie (oras, tara, continent)
 
 ## Arhitectura
 
-Arhitectura (subject to change)
+Arhitectura (subject to change, nu toate metodele si atributele au fost adaugate)
 ![Alt text](documentatie-ghid-utlizare-raport/Versiune1_diagrama_agentie_turism.png)
 
 
