@@ -20,11 +20,11 @@ Aplicatia o sa permita cautarea sejururilor dupa locatie (oras, tara, continent)
 * Harta cu sejururi
 
 ## Arhitectura
-Lorem ipsum ...
 
+Arhitectura (subject to change)
 ![Alt text](documentatie-ghid-utlizare-raport/Versiune1_diagrama_agentie_turism.png)
 
-Lorem ipsum ...
+
 
 ## Functionalitati/Exemple utilizare
 Lorem ipsum
