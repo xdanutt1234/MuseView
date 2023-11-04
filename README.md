@@ -27,7 +27,7 @@ Arhitectura (subject to change, nu toate metodele si atributele au fost adaugate
 
 
 ## Functionalitati/Exemple utilizare
-Lorem ipsum
+
 
 ### Resurse
 Markdown Guide, [Online] Available: https://www.markdownguide.org/basic-syntax/ [accesed: Mar 14, 1706]
