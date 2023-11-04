@@ -9,15 +9,7 @@ Aplicatia o sa permita cautarea sejururilor dupa locatie (oras, tara, continent)
 
 ## Obiective
 
-* Lista cu sejururi
-* Rezervare
-    - Anulare rezervare
-* Search bar
-    - In functie de locatie
-    - In functie de alte criterii
-* Criterii de filtrare a intrarilor
-* Ratings
-* Harta cu sejururi
+Realizarea unei aplicatii estetica si usor de utilizat cu scopul de facilitarii rezervarii unuia sau mai multor sejururi, cautare de sejururi dupa criterii sau pe o harta, oferirea de recenzii pentru fiecare sejur achizitionat in parte sau a unor anumite aspecte ale sejururilor, oferirea aspectului de user preferences (in care utilizatorul poate sa isi modifice experienta in aplicatie in functie de preferinte), setari ale aplicatiei etc.
 
 ## Arhitectura
 
@@ -28,6 +20,15 @@ Arhitectura (subject to change, nu toate metodele si atributele au fost adaugate
 
 ## Functionalitati/Exemple utilizare
 
+* Lista cu sejururi
+* Rezervare
+    - Anulare rezervare
+* Search bar
+    - In functie de locatie
+    - In functie de alte criterii
+* Criterii de filtrare a intrarilor
+* Ratings
+* Harta cu sejururi
 
 ### Resurse
 Markdown Guide, [Online] Available: https://www.markdownguide.org/basic-syntax/ [accesed: Mar 14, 1706]
