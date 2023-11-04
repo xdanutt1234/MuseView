@@ -9,7 +9,7 @@ Aplicatia o sa permita cautarea sejururilor dupa locatie (oras, tara, continent)
 
 ## Obiective
 
-Realizarea unei aplicatii cu aspect estetic si interfata usor de utilizat cu scopul de facilitarii rezervarii unuia sau mai multor sejururi, cautare de sejururi dupa criterii sau pe o harta, oferirea de recenzii pentru fiecare sejur achizitionat in parte sau a unor anumite aspecte ale sejururilor, oferirea aspectului de user preferences (in care utilizatorul poate sa isi modifice experienta in aplicatie in functie de preferinte), setari ale aplicatiei etc.
+Realizarea unei aplicatii cu aspect estetic si interfata usor de utilizat cu scopul de a facilita rezervarea unuia sau a mai multor sejururi, cautare de sejururi dupa criterii sau pe o harta, oferirea de recenzii pentru fiecare sejur achizitionat in parte sau a unor anumite aspecte ale sejururilor, oferirea aspectului de user preferences (in care utilizatorul poate sa isi modifice experienta in aplicatie in functie de preferinte), setari ale aplicatiei etc.
 
 ## Arhitectura
 
