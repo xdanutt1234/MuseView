@@ -16,7 +16,8 @@ Realizarea unei aplicatii cu aspect estetic si interfata usor de utilizat cu sco
 Arhitectura (subject to change, nu toate metodele si atributele au fost adaugate)
 ![Alt text](documentatie-ghid-utlizare-raport/Versiune2_diagrama_agentie_turism.png)
 
-
+Diagrama pentru baze de date este incompleta (subject to change)
+![Alt text](documentatie-ghid-utlizare-raport/Diagrama_database.png)
 
 ## Functionalitati/Exemple utilizare
 
