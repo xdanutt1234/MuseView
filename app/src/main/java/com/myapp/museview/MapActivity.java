@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.animation.AlphaAnimation;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
@@ -33,6 +34,17 @@ public class MapActivity extends AppCompatActivity {
         String namemuseum = intent.getStringExtra("name");
         List<Marker> list = performMarkerSearch(idmuseum);
         ImageView map = findViewById(R.id.mapView);
+        Button back = findViewById(R.id.buttonBackMap);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent1 = new Intent(MapActivity.this, MuseumDetailsActivity.class);
+                intent1.putExtras(intent.getExtras());
+                startActivity(intent1);
+            }
+        });
+        if(intent.getStringExtra("map") != "")
+            map.setImageResource(getResources().getIdentifier(intent.getStringExtra("map"),"drawable",getPackageName()));
         mapContainer.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
             public void onGlobalLayout() {
@@ -106,7 +118,7 @@ public class MapActivity extends AppCompatActivity {
         // Initialize views in the popup layout
         TextView textMarkerName = popupView.findViewById(R.id.textMarkerName);
         TextView textMarkerDescription = popupView.findViewById(R.id.textMarkerDescription);
-        ImageView imageMarker = popupView.findViewById(R.id.imageMarker);
+        //ImageView imageMarker = popupView.findViewById(R.id.imageMarker);
 
         // Set marker information to views
         textMarkerName.setText(marker.getName());
@@ -114,7 +126,7 @@ public class MapActivity extends AppCompatActivity {
 
         // Load image using your preferred image loading library (e.g., Picasso, Glide)
         // For simplicity, assume marker.getImage() returns a resource ID
-        imageMarker.setImageResource(getResources().getIdentifier(marker.getImage(), "drawable", getPackageName()));
+        //imageMarker.setImageResource(getResources().getIdentifier(marker.getImage(), "drawable", getPackageName()));
 
         // Create a PopupWindow
 

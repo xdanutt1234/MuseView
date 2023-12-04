@@ -1,5 +1,6 @@
 package com.myapp.museview;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,17 @@ import java.util.List;
 public class SearchAdapterMuseum extends RecyclerView.Adapter<SearchAdapterMuseum.SearchViewHolder> {
     private List<Museum> searchResults;
 
+    public void ClearList()
+    {
+        searchResults.clear();
+    }
+    public void LogList()
+    {
+        for(Museum x : searchResults)
+        {
+            Log.d("LogList",x.toString());
+        }
+    }
     public interface OnButtonClickListener{
         void onButtonClick(Museum museum);
     }
@@ -77,7 +89,8 @@ public class SearchAdapterMuseum extends RecyclerView.Adapter<SearchAdapterMuseu
             detailsButton = itemView.findViewById(R.id.buttonDescription);
         }
         public void bind(Museum result,View.OnClickListener buttonClickListener)
-        {   associatedMuseum = result;
+        {   Log.d("bind",result.toString());
+            associatedMuseum = result;
             museum_name.setText(result.getName());
             //museum_description.setText(result.getDescription());
             detailsButton.setOnClickListener(buttonClickListener);

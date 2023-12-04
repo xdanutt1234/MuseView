@@ -37,6 +37,7 @@ public class SearchActivity extends AppCompatActivity implements SearchAdapterMu
         intent.putExtra("name",museum.getName());
         intent.putExtra("description",museum.getDescription());
         intent.putExtra("image",museum.getImage());
+        intent.putExtra("map",museum.getLocation());
         startActivity(intent);
     }
     protected void onCreate(Bundle savedInstanceState)
@@ -61,11 +62,6 @@ public class SearchActivity extends AppCompatActivity implements SearchAdapterMu
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
                 performSearch(s.toString());
                 if(recyclerViewResults.getAdapter().getItemCount()==0)
                     logo.setVisibility(View.VISIBLE);
@@ -73,16 +69,26 @@ public class SearchActivity extends AppCompatActivity implements SearchAdapterMu
                     logo.setVisibility(View.INVISIBLE);
 
             }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
         });
     }
     private void performSearch(String query)
-    {
+    {   Log.d("SearchActivity", "Performing search for query: " + query);
+        searchAdapterMuseum.ClearList();
         List<Museum> list = performActualSearch(query);
+
         searchAdapterMuseum.setSearchResults(list);
+        searchAdapterMuseum.notifyDataSetChanged();
+
 
     }
     private List<Museum> performActualSearch(String query)
-    {   DatabaseHelper databaseHelper = new DatabaseHelper(this);
+    {   Log.d("SearchActivity", "Performing actual search for query: " + query);
+        DatabaseHelper databaseHelper = new DatabaseHelper(this);
         SQLiteDatabase db = databaseHelper.getReadableDatabase();
 
         Cursor cursor = null;
@@ -102,7 +108,10 @@ public class SearchActivity extends AppCompatActivity implements SearchAdapterMu
         {
             list.add(new Museum(cursor.getInt(cursor.getColumnIndexOrThrow("idMuseum")), cursor.getString(cursor.getColumnIndexOrThrow("museumName")), cursor.getString(cursor.getColumnIndexOrThrow("museumDescription")),cursor.getString(cursor.getColumnIndexOrThrow("mapLocation")),cursor.getString(cursor.getColumnIndexOrThrow("imageName"))));
         }
-
+        /*for(Museum x : list)
+        {
+            Log.d("Museum in actualSearch", x.toString());
+        }*/
 
         return list;
     }

@@ -6,24 +6,23 @@
     android:orientation="vertical"
     android:padding="16dp"
     android:background="@drawable/ripple_dreptunghi"
-    android:backgroundTint="@color/white">
+    android:backgroundTint="#ededed">
 
     <TextView
         android:id="@+id/textMarkerName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Marker Name" />
-
+    <ScrollView
+        android:layout_width="100dp"
+        android:layout_height="100dp">
     <TextView
         android:id="@+id/textMarkerDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Marker Description" />
+    </ScrollView>
 
-    <ImageView
-        android:id="@+id/imageMarker"
-        android:layout_width="100dp"
-        android:layout_height="100dp" />
         <!--android:src=""-->
 
 </LinearLayout>

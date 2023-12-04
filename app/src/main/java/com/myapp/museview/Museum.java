@@ -36,4 +36,14 @@ public class Museum {
         this.image = imageName;
     }
 
+    @Override
+    public String toString() {
+        return "Museum{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", location='" + location + '\'' +
+                ", image='" + image + '\'' +
+                '}';
+    }
 }

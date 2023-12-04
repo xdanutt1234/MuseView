@@ -17,16 +17,17 @@ import java.sql.Statement;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String name = "BazaDate_Museview.db";
-    private static final int version = 25;
+    private static final int version = 35;
     public DatabaseHelper(@Nullable Context context) {
         super(context, name , null, version);
 
     }
+
     @Override
     public void onCreate(SQLiteDatabase db)
     {
 
-        String createTableQueryUser = "CREATE TABLE User ("
+        /*String createTableQueryUser = "CREATE TABLE User ("
                 + "id INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + "Username TEXT UNIQUE,"
                 + "Email TEXT UNIQUE,"
@@ -38,7 +39,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + "museumDescription TEXT,"
                 + "mapLocation TEXT,"
                 + "imageName TEXT);";
-        db.execSQL(createTableQueryMuseum);
+        db.execSQL(createTableQueryMuseum);*/
         String createTableQueryMarker = "CREATE TABLE Marker (" +
                 "idMarker INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "markerName TEXT," +
@@ -48,13 +49,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 "museum INTEGER," +
                 "markerimage TEXT);";
         db.execSQL(createTableQueryMarker);
-        String createTableQueryMuseumReview = "CREATE TABLE MuseumReview (" +
+
+        /*String createTableQueryMuseumReview = "CREATE TABLE MuseumReview (" +
                 "idMuseumReview INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "idUser INTEGER," +
                 "idMuseum INTEGER," +
                 "rating INTEGER," +
                 "comment TEXT);";
-        db.execSQL(createTableQueryMuseumReview);
+        db.execSQL(createTableQueryMuseumReview);*/
 
     }
 
@@ -96,10 +98,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " + "User");
-        db.execSQL("DROP TABLE IF EXISTS " + "Museum");
+        //db.execSQL("DROP TABLE IF EXISTS " + "User");
+        //db.execSQL("DROP TABLE IF EXISTS " + "Museum");
         db.execSQL("DROP TABLE IF EXISTS " + "Marker");
-        db.execSQL("DROP TABLE IF EXISTS " + "MuseumReview");
+        //db.execSQL("DROP TABLE IF EXISTS " + "MuseumReview");
 
         onCreate(db);
     }
