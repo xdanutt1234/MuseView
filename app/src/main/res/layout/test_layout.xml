@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:columnCount="2"
+    android:rowCount="2"
+    android:padding="16dp"
+    android:background="#800020">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnSearch"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:layout_gravity="fill"
+        android:layout_margin="8dp"
+        android:background="@drawable/button_background"
+        android:text="SEARCH"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        style="@style/NavigationButtonStyle"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnScanQR"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:layout_gravity="fill"
+        android:layout_margin="8dp"
+        android:background="@drawable/button_background"
+        android:text="SCAN QR"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        style="@style/NavigationButtonStyle"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnMyReviews"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:layout_gravity="fill"
+        android:layout_margin="8dp"
+        android:background="@drawable/button_background"
+        android:text="MY REVIEWS"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        style="@style/NavigationButtonStyle"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnSettings"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        android:layout_gravity="fill"
+        android:layout_margin="8dp"
+        android:background="@drawable/button_background"
+        android:text="SETTINGS"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        style="@style/NavigationButtonStyle"/>
+
+</GridLayout>
