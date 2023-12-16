@@ -49,6 +49,13 @@
             android:theme="@style/zxing_CaptureTheme"
             android:windowSoftInputMode="stateAlwaysHidden"
             ></activity>
+        <activity android:name=".QRMarkerActivity"
+            android:exported="false"
+            android:screenOrientation="sensorPortrait"
+            android:stateNotNeeded="true"
+            android:theme="@style/zxing_CaptureTheme"
+            android:windowSoftInputMode="stateAlwaysHidden"
+            ></activity>
         <activity android:name=".CaptureActivityPortrait"
             android:screenOrientation="sensorPortrait"
             android:stateNotNeeded="true"
