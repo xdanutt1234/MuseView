@@ -4,27 +4,25 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import com.google.zxing.Result;
+
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
-import com.journeyapps.barcodescanner.CaptureActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class QRActivity extends CaptureActivityPortrait {
+public class QRMarkerActivity extends CaptureActivityPortrait {
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        IntentIntegrator intentIntegrator = new IntentIntegrator(QRActivity.this);
-        intentIntegrator.setPrompt("Scan a MuseView QR code");
+        Intent intent = getIntent();
+        IntentIntegrator intentIntegrator = new IntentIntegrator(QRMarkerActivity.this);
+        intentIntegrator.setPrompt("Scan a Marker QR code");
         intentIntegrator.setOrientationLocked(false);
         intentIntegrator.initiateScan();
     }
@@ -38,14 +36,15 @@ public class QRActivity extends CaptureActivityPortrait {
             } else {
                 DatabaseHelper databaseHelper = new DatabaseHelper(this);
                 SQLiteDatabase db = databaseHelper.getReadableDatabase();
-
+                Intent intent = getIntent();
+                int idmuseum = intent.getIntExtra("id",-1);
                 Cursor cursor = null;
-                List<Museum> list = new ArrayList<>();
+                List<Marker> list = new ArrayList<>();
 
                 cursor = db.query(
-                        "MUSEUM",
-                        new String[]{"IDMUSEUM","MUSEUMNAME","MUSEUMDESCRIPTION","MAPLOCATION", "IMAGENAME"},
-                        "IDMUSEUM = " + intentResult.getContents(),
+                        "MARKER",
+                        new String[]{"IDMARKER","MARKERNAME","MARKERDESCRIPTION","XPOS", "YPOS", "MUSEUM", "MARKERIMAGE"},
+                        "MUSEUM = " + idmuseum,
                         null,
                         null,
                         null,
@@ -54,22 +53,27 @@ public class QRActivity extends CaptureActivityPortrait {
                 list.clear();
                 while (cursor.moveToNext())
                 {
-                    list.add(new Museum(cursor.getInt(cursor.getColumnIndexOrThrow("idMuseum")), cursor.getString(cursor.getColumnIndexOrThrow("museumName")), cursor.getString(cursor.getColumnIndexOrThrow("museumDescription")),cursor.getString(cursor.getColumnIndexOrThrow("mapLocation")),cursor.getString(cursor.getColumnIndexOrThrow("imageName"))));
+                    list.add(new Marker(cursor.getInt(cursor.getColumnIndexOrThrow("idMarker")),
+                            cursor.getString(cursor.getColumnIndexOrThrow("markerName")),
+                            cursor.getString(cursor.getColumnIndexOrThrow("markerDescription")),
+                            cursor.getFloat(cursor.getColumnIndexOrThrow("xPos")),
+                            cursor.getFloat(cursor.getColumnIndexOrThrow("yPos")),
+                            cursor.getInt(cursor.getColumnIndexOrThrow("museum")),
+                            cursor.getString(cursor.getColumnIndexOrThrow("markerimage"))));
                 }
-                toMuseum(list.get(0));
+                toMuseum(intent,list.get(0));
 
             }
         } else {
             super.onActivityResult(requestCode, resultCode, data);
         }
     }
-    private void toMuseum(Museum museum)
+    private void toMuseum(Intent intent, Marker marker)
     {
-        Intent intent = new Intent(this, MuseumDetailsActivity.class);
-        intent.putExtra("id",museum.getId());
-        intent.putExtra("name",museum.getName());
-        intent.putExtra("description",museum.getDescription());
-        intent.putExtra("image",museum.getImage());
-        startActivity(intent);
+        Intent intent1 = new Intent(this, MuseumDetailsActivity.class);
+        intent1.putExtras(intent);
+        intent1.putExtra("x",marker.getX());
+        intent1.putExtra("y",marker.getY());
+        startActivity(intent1);
     }
 }

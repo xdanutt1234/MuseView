@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,8 +42,14 @@ public class MuseumDetailsActivity extends AppCompatActivity {
         {
 
             ratingBar.setRating(result.rating);
+            DecimalFormat value =  new DecimalFormat("#.#");
+            if((result.rating - (int)result.rating)!=0) {
+                noreviews.setText(Double.toString(Math.round(result.rating * 10)/10.0)+"/5 ("+Integer.toString(result.count)+" reviews)");
+            }
 
-            noreviews.setText(Float.toString(result.rating)+"/5 ("+Integer.toString(result.count)+" reviews)");
+            else {
+                noreviews.setText(Integer.toString((int)result.rating)+"/5 ("+Integer.toString(result.count)+" reviews)");
+            }
         }
         else
         {

@@ -3,6 +3,11 @@ package com.myapp.museview;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
+import android.graphics.ColorFilter;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffColorFilter;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
@@ -17,6 +22,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatImageButton;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import java.util.ArrayList;
@@ -25,16 +31,27 @@ import java.util.List;
 public class MapActivity extends AppCompatActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {   super.onCreate(savedInstanceState);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
         Intent intent = getIntent();
         ConstraintLayout mapContainer = findViewById(R.id.mapContainer);
-        int idmuseum = intent.getIntExtra("id",-1);
+        int idmuseum = intent.getIntExtra("id", -1);
         String namemuseum = intent.getStringExtra("name");
         List<Marker> list = performMarkerSearch(idmuseum);
         ImageView map = findViewById(R.id.mapView);
         Button back = findViewById(R.id.buttonBackMap);
+        AppCompatImageButton scan = findViewById(R.id.buttonScanMarker);
+        Drawable drawable = scan.getDrawable().mutate();
+        ColorFilter colorFilter = new PorterDuffColorFilter(Color.WHITE, PorterDuff.Mode.MULTIPLY);
+        drawable.setColorFilter(colorFilter);
+        scan.setImageDrawable(drawable);
+
+        if (intent.hasExtra("x") && intent.hasExtra("y"))
+        {
+            Log.d("x",Float.toString(intent.getFloatExtra("x",-1)));
+            Log.d("y",Float.toString(intent.getFloatExtra("y",-1)));
+        }
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -43,6 +60,16 @@ public class MapActivity extends AppCompatActivity {
                 startActivity(intent1);
             }
         });
+
+        scan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent1 = new Intent(MapActivity.this, QRMarkerActivity.class);
+                intent1.putExtras(intent.getExtras());
+                startActivity(intent1);
+            }
+        });
+
         if(intent.getStringExtra("map") != "")
             map.setImageResource(getResources().getIdentifier(intent.getStringExtra("map"),"drawable",getPackageName()));
         mapContainer.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
