@@ -30,17 +30,19 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatImageButton;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.content.ContextCompat;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MapActivity extends AppCompatActivity {
-
+    private View highlightedMarkerView = null;
+    Intent intent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
-        Intent intent = getIntent();
+        intent = getIntent();
         ConstraintLayout mapContainer = findViewById(R.id.mapContainer);
         int idmuseum = intent.getIntExtra("id", -1);
         String namemuseum = intent.getStringExtra("name");
@@ -53,18 +55,13 @@ public class MapActivity extends AppCompatActivity {
         drawable.setColorFilter(colorFilter);
         scan.setImageDrawable(drawable);
 
-        if (intent.hasExtra("x") && intent.hasExtra("y"))
-        {
-            Log.d("x",Float.toString(intent.getFloatExtra("x",-1)));
-            Log.d("y",Float.toString(intent.getFloatExtra("y",-1)));
-            show(intent.getFloatExtra("x",-1),intent.getFloatExtra("y",-1));
-            intent.removeExtra("x");
-            intent.removeExtra("y");
-        }
+
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent1 = new Intent(MapActivity.this, MuseumDetailsActivity.class);
+                intent.removeExtra("x");
+                intent.removeExtra("y");
                 intent1.putExtras(intent.getExtras());
                 startActivity(intent1);
             }
@@ -74,6 +71,8 @@ public class MapActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent1 = new Intent(MapActivity.this, QRMarkerActivity.class);
+                intent.removeExtra("x");
+                intent.removeExtra("y");
                 intent1.putExtras(intent.getExtras());
                 startActivity(intent1);
             }
@@ -94,6 +93,21 @@ public class MapActivity extends AppCompatActivity {
                     Log.d("MapActivity", "Calculated Y: " + y);
                     View markerView = new View(MapActivity.this);
                     markerView.setBackgroundResource(R.drawable.pin);
+                    if(marker.getX() == intent.getFloatExtra("x",-1) && marker.getY() == intent.getFloatExtra("y",-1))
+                    {
+
+                        Drawable originalDrawable = markerView.getBackground();
+                        Drawable newDrawable = originalDrawable.mutate();
+                        newDrawable.setColorFilter(new PorterDuffColorFilter(Color.BLUE, PorterDuff.Mode.SRC_IN));
+                        markerView.setBackground(newDrawable);
+
+                        Log.d("x",Float.toString(intent.getFloatExtra("x",-1)));
+                        Log.d("y",Float.toString(intent.getFloatExtra("y",-1)));
+                        show(intent.getFloatExtra("x",-1),intent.getFloatExtra("y",-1),markerView, mapContainer);
+
+
+                    }
+
 
                     markerView.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -110,6 +124,7 @@ public class MapActivity extends AppCompatActivity {
 
                     Log.d("MapActivity", "Actual X: " + params.leftMargin);
                     Log.d("MapActivity", "Actual Y: " + params.topMargin);
+
                     mapContainer.addView(markerView,params);
                 }
             }
@@ -178,7 +193,7 @@ public class MapActivity extends AppCompatActivity {
         popupWindow.showAtLocation(mapContainer, Gravity.NO_GRAVITY, xOffset, yOffset);
         popupWindow.setOutsideTouchable(true);
     }
-    public void show(float xCoordinate, float yCoordinate) {
+    public void show(float xCoordinate, float yCoordinate, View markerView, ConstraintLayout mapContainer) {
         Toast toast = new Toast(getApplicationContext());
 
         // Inflate the custom layout for the toast
@@ -190,6 +205,7 @@ public class MapActivity extends AppCompatActivity {
 
         // Set the view and position
         toast.setView(toastView);
+        Log.d("containerHeight",Integer.toString(mapContainer.getHeight()) + " " + Integer.toString(mapContainer.getWidth()));
         toast.setGravity(Gravity.TOP | Gravity.LEFT, Math.round(xCoordinate) * 400, Math.round(yCoordinate) * 900);
 
         // Set a duration for the toast (e.g., LENGTH_SHORT or LENGTH_LONG)
@@ -197,5 +213,21 @@ public class MapActivity extends AppCompatActivity {
 
         // Show the toast
         toast.show();
+        new Handler(Looper.getMainLooper()).postDelayed(() -> {
+            if (markerView != null) {
+                Drawable originalDrawable = markerView.getBackground();
+                Drawable newDrawable = originalDrawable.mutate();
+
+                // Apply your color filter or changes to the new Drawable if needed
+
+                // Set the new Drawable to the markerView
+                newDrawable.setColorFilter(new PorterDuffColorFilter(Color.parseColor("#d63930"), PorterDuff.Mode.SRC_IN));
+                markerView.setBackground(newDrawable);
+
+                // Invalidate the view to force a redraw
+                markerView.invalidate();
+                Log.d("Worked??","Possibly");
+            }
+        }, 3500);
     }
 }
