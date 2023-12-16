@@ -38,14 +38,15 @@
         android:layout_height="70sp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="320dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginStart="330dp"
+        android:layout_marginTop="6dp"
         android:backgroundTint="#941031"
         android:rotationY="180"
         android:src="@drawable/scanlogo"
         android:background="@drawable/dreptunghi"
         android:scaleType="fitCenter"
         android:textSize="30sp"
+        app:tint="@android:color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

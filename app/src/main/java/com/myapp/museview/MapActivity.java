@@ -5,21 +5,27 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.graphics.ColorFilter;
+import android.graphics.PixelFormat;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
+import android.view.WindowManager;
 import android.view.animation.AlphaAnimation;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatImageButton;
@@ -51,6 +57,9 @@ public class MapActivity extends AppCompatActivity {
         {
             Log.d("x",Float.toString(intent.getFloatExtra("x",-1)));
             Log.d("y",Float.toString(intent.getFloatExtra("y",-1)));
+            show(intent.getFloatExtra("x",-1),intent.getFloatExtra("y",-1));
+            intent.removeExtra("x");
+            intent.removeExtra("y");
         }
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -98,6 +107,7 @@ public class MapActivity extends AppCompatActivity {
                     params.leftMargin=Math.round(x);
                     params.topToTop = ConstraintLayout.LayoutParams.PARENT_ID;
                     params.topMargin=Math.round(y);
+
                     Log.d("MapActivity", "Actual X: " + params.leftMargin);
                     Log.d("MapActivity", "Actual Y: " + params.topMargin);
                     mapContainer.addView(markerView,params);
@@ -167,5 +177,25 @@ public class MapActivity extends AppCompatActivity {
         popupView.startAnimation(fadeIn);
         popupWindow.showAtLocation(mapContainer, Gravity.NO_GRAVITY, xOffset, yOffset);
         popupWindow.setOutsideTouchable(true);
+    }
+    public void show(float xCoordinate, float yCoordinate) {
+        Toast toast = new Toast(getApplicationContext());
+
+        // Inflate the custom layout for the toast
+        View toastView = getLayoutInflater().inflate(R.layout.custom_toast_layout, null);
+
+        // Set the message
+        TextView textView = toastView.findViewById(R.id.toast_message);
+        textView.setText("You're here");
+
+        // Set the view and position
+        toast.setView(toastView);
+        toast.setGravity(Gravity.TOP | Gravity.LEFT, Math.round(xCoordinate) * 400, Math.round(yCoordinate) * 900);
+
+        // Set a duration for the toast (e.g., LENGTH_SHORT or LENGTH_LONG)
+        toast.setDuration(Toast.LENGTH_SHORT);
+
+        // Show the toast
+        toast.show();
     }
 }

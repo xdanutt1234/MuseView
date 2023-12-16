@@ -44,7 +44,7 @@ public class QRMarkerActivity extends CaptureActivityPortrait {
                 cursor = db.query(
                         "MARKER",
                         new String[]{"IDMARKER","MARKERNAME","MARKERDESCRIPTION","XPOS", "YPOS", "MUSEUM", "MARKERIMAGE"},
-                        "MUSEUM = " + idmuseum,
+                        "IDMARKER = " + intentResult.getContents(),
                         null,
                         null,
                         null,
@@ -70,7 +70,7 @@ public class QRMarkerActivity extends CaptureActivityPortrait {
     }
     private void toMuseum(Intent intent, Marker marker)
     {
-        Intent intent1 = new Intent(this, MuseumDetailsActivity.class);
+        Intent intent1 = new Intent(this, MapActivity.class);
         intent1.putExtras(intent);
         intent1.putExtra("x",marker.getX());
         intent1.putExtra("y",marker.getY());
