@@ -70,6 +70,7 @@ public class QRActivity extends CaptureActivityPortrait {
         intent.putExtra("name",museum.getName());
         intent.putExtra("description",museum.getDescription());
         intent.putExtra("image",museum.getImage());
+        intent.putExtra("map",museum.getLocation());
         startActivity(intent);
     }
 }

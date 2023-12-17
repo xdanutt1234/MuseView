@@ -45,7 +45,7 @@ public class MapActivity extends AppCompatActivity {
         intent = getIntent();
         ConstraintLayout mapContainer = findViewById(R.id.mapContainer);
         int idmuseum = intent.getIntExtra("id", -1);
-        String namemuseum = intent.getStringExtra("name");
+        //String namemuseum = intent.getStringExtra("name");
         List<Marker> list = performMarkerSearch(idmuseum);
         ImageView map = findViewById(R.id.mapView);
         Button back = findViewById(R.id.buttonBackMap);
