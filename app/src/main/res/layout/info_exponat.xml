@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@drawable/ripple_dreptunghi"
+    android:backgroundTint="#ededed">
+
+    <TextView
+        android:id="@+id/textMarkerName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Marker Name" />
+    <ScrollView
+        android:layout_width="100dp"
+        android:layout_height="100dp">
+    <TextView
+        android:id="@+id/textMarkerDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Marker Description" />
+    </ScrollView>
+
+        <!--android:src=""-->
+
+</LinearLayout>

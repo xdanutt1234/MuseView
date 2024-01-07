@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <corners android:radius="25dp" /> <!-- Set a small radius for rounded corners -->
+    <item
+
+        android:left="0dp"
+        android:right="0dp"
+        android:top="-10dp"
+        android:bottom="0dp">
+        <rotate
+            android:fromDegrees="45"
+            android:pivotX="50%"
+            android:pivotY="50%">
+            <shape android:shape="rectangle">
+
+            </shape>
+
+        </rotate>
+    </item>
+    <stroke android:color="@color/black" android:width="2dp">
+
+    </stroke>
+    <solid android:color="@color/wine_red"></solid>
+</shape>

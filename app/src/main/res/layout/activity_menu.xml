@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:backgroundTint="@color/wine_red"
+    >
+
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/search_button"
+        android:layout_width="330dp"
+        android:layout_height="60dp"
+        android:background="@drawable/ripple_dreptunghi"
+        android:backgroundTint="@color/white"
+        android:text="SEARCH"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.38" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/qr_button"
+        android:layout_width="330dp"
+        android:layout_height="60dp"
+        android:background="@drawable/ripple_dreptunghi"
+        android:backgroundTint="@color/white"
+        android:text="SCAN QR"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.50" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/reviews_button"
+        android:layout_width="330dp"
+        android:layout_height="60dp"
+        android:background="@drawable/ripple_dreptunghi"
+        android:backgroundTint="@color/white"
+        android:text="My reviews"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.62" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/settings_button"
+        android:layout_width="330dp"
+        android:layout_height="60dp"
+        android:background="@drawable/ripple_dreptunghi"
+        android:backgroundTint="@color/white"
+        android:text="SETTINGS"
+        android:textColor="@color/black"
+        android:elevation="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.74" />
+
+
+
+
+    <ImageView
+        android:id="@+id/bottomSquare2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:adjustViewBounds="true"
+        android:padding="0sp"
+        android:scaleType="fitXY"
+        app:tint="#ededed"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/wine_red_square" />
+
+
+    <ImageView
+        android:id="@+id/topSquare2"
+        android:layout_width="450dp"
+        android:layout_height="175dp"
+        android:layout_alignParentStart="true"
+        android:adjustViewBounds="true"
+        android:padding="0sp"
+        android:scaleType="fitXY"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/wine_red_square" />
+    <TextView
+        android:id="@+id/textViewWelcomeMenu"
+        android:layout_width="330dp"
+        android:layout_height="60dp"
+        android:gravity="center"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="140dp"
+        android:fontFamily="@font/roboto_bold"
+        android:background="@drawable/dreptunghi"
+        android:backgroundTint="@color/white"
+        android:text="Welcome"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/textViewMenu"
+        android:layout_width="330dp"
+        android:layout_height="60dp"
+        android:gravity="center"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/roboto_bold"
+
+        android:text="Menu"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

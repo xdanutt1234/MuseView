@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name" >MuseView</string>
+    <string name="registeren"><u>Register</u></string>
+    <string name="forgotpassworden"><u>Forgot password</u></string>
+    <string name="loginen">Login</string>
+    <string name="welcomebacken">Welcome Back</string>
+    <string name="useren">Username</string>
+    <string name="passen">Password</string>
+    <string name="registerpageen">Register</string>
+    <string name="emailen">Email</string>
+    <string name="welcomeen">Welcome</string>
+</resources>
