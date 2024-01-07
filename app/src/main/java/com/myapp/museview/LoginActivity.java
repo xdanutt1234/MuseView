@@ -1,3 +1,18 @@
+/**
+ * LoginActivity este o activitate care gestionează procesul de autentificare în aplicație.
+ * Utilizatorii pot introduce numele de utilizator și parola, iar apoi pot încerca să se autentifice.
+ * Dacă autentificarea este reușită, utilizatorul este redirecționat către activitatea MenuActivity.
+ * În plus, utilizatorii au opțiunea de a se înscrie (RegisterActivity) sau de a reveni la ecranul principal (MainActivity).
+ *
+ * Utilizare:
+ * Pentru a utiliza această activitate, trebuie să o porniți prin intermediul unei intentii.
+ * Exemplu:
+ * Intent intentie = new Intent(LoginActivity.this, LoginActivity.class);
+ * startActivity(intentie);
+ *
+ * @author Vladu Marian-Dumitru
+ * @version 1.0
+ */
 package com.myapp.museview;
 
 import android.content.Intent;
@@ -79,6 +94,13 @@ public class LoginActivity extends AppCompatActivity {
                 .start();
     }
 
+    /**
+     * Verifică dacă un utilizator este autentificat în baza de date.
+     *
+     * @param username Numele de utilizator introdus.
+     * @param password Parola introdusă.
+     * @return true dacă autentificarea este reușită, false în caz contrar.
+     */
     public boolean checkLogin(String username, String password) {
 
         String[] projection = {"id"};
@@ -91,6 +113,12 @@ public class LoginActivity extends AppCompatActivity {
         return cursor.getCount() > 0;
     }
 
+    /**
+     * Obține ID-ul utilizatorului pe baza numelui de utilizator.
+     *
+     * @param username Numele de utilizator pentru care se dorește obținerea ID-ului.
+     * @return ID-ul utilizatorului sau -1 dacă nu este găsit.
+     */
     public int getUserIDByUsername(String username)
     {
         DatabaseHelper databaseHelper = new DatabaseHelper(LoginActivity.this);

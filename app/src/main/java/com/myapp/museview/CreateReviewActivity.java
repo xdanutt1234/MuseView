@@ -1,3 +1,12 @@
+/**
+ * Aceasta activitate permite utilizatorilor sa creeze si sa submita reviewuri pentru un muzeu.
+ * Include elemente de UI cum ar fi RatingBar pentru rating si EditText pentru a adauga comentarii.
+ * Review-ul utilizatorului, impreuna cu ID-ul sau si ID-ul muzeului sunt stocate in baza de date.
+ * Dupa submitere utilizatorul este redirectionat catre MuseumDetailsActivity
+ * @author Vladu Marian-Dumitru
+ * @version 1.0
+ */
+
 package com.myapp.museview;
 
 import android.content.ContentValues;
@@ -15,6 +24,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class CreateReviewActivity extends AppCompatActivity {
 
+    /**
+     * Metoda chemata cand activitatea este creata. Responsabila pentru initializarea activitatii.
+     * @param savedInstanceState If the activity is being re-initialized after
+     *     previously being shut down then this Bundle contains the data it most
+     *     recently supplied in {@link #onSaveInstanceState}.  <b><i>Note: Otherwise it is null.</i></b>
+     *
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

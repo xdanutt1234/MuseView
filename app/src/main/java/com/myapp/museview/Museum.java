@@ -1,3 +1,6 @@
+/**
+ * Clasa reprezentând un obiect muzeu în aplicație.
+ */
 package com.myapp.museview;
 
 public class Museum {
@@ -27,6 +30,15 @@ public class Museum {
     }
     public String getLocation() { return this.location; }
 
+    /**
+     * Constructor pentru obiectul Muzeu.
+     *
+     * @param id          ID-ul muzeului.
+     * @param name        Numele muzeului.
+     * @param description Descrierea muzeului.
+     * @param location    Locația hartii muzeului (daca exista).
+     * @param imageName   Numele imaginii asociate muzeului.
+     */
     Museum(int id, String name, String description, String location, String imageName)
     {
         this.id = id;

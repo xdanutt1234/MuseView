@@ -1,3 +1,7 @@
+
+/**
+ * Alta activitate principală a aplicației, care afișează meniul principal al utilizatorului autentificat.
+ */
 package com.myapp.museview;
 
 import androidx.appcompat.app.AppCompatActivity;

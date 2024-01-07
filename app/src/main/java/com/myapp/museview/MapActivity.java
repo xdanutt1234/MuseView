@@ -1,3 +1,16 @@
+
+/**
+ * MapActivity este activitatea care afișează harta muzeului și marcatorii asociați.
+ * Utilizatorii pot vedea informații despre marcatori și pot naviga către alte activități, cum ar fi detalii muzeu sau scanare marker.
+ * De asemenea, această activitate afișează un marker special care indică poziția utilizatorului pe hartă.
+ *
+ * Utilizare:
+ * Această activitate este lansată pentru a prezenta harta muzeului și marcatorii. De asemenea, permite scanarea unui nou marker.
+ * Metoda showMarkerInfoPopup() afișează informații detaliate despre un marcator, iar metoda show() afișează un toast și evidențiază un marker.
+ *
+ * @author Vladu Marian-Dumitru
+ * @version 1.0
+ */
 package com.myapp.museview;
 
 import android.content.Intent;
@@ -132,6 +145,12 @@ public class MapActivity extends AppCompatActivity {
 
 
     }
+    /**
+     * Execută o căutare a marcatorilor în baza de date pentru un anumit muzeu.
+     *
+     * @param idmuseum ID-ul muzeului pentru care se caută marcatori.
+     * @return O listă de obiecte Marker care conține informații despre marcatori.
+     */
     private List<Marker> performMarkerSearch(int idmuseum)
     {   DatabaseHelper databaseHelper = new DatabaseHelper(this);
         SQLiteDatabase db = databaseHelper.getReadableDatabase();
@@ -163,6 +182,14 @@ public class MapActivity extends AppCompatActivity {
 
         return list;
     }
+
+    /**
+     * Afișează un PopupWindow cu informații despre un marcator.
+     *
+     * @param marker Obiectul Marker care conține informații despre marcator.
+     * @param mapContainer Layout-ul care conține harta și marcatorii.
+     * @param anchorView View-ul ancoră pentru a poziționa PopupWindow.
+     */
     private void showMarkerInfoPopup(Marker marker, ConstraintLayout mapContainer, View anchorView) {
         // Inflate the marker info layout
         View popupView = getLayoutInflater().inflate(R.layout.info_exponat, null);
@@ -193,6 +220,15 @@ public class MapActivity extends AppCompatActivity {
         popupWindow.showAtLocation(mapContainer, Gravity.NO_GRAVITY, xOffset, yOffset);
         popupWindow.setOutsideTouchable(true);
     }
+
+    /**
+     * Afișează un Toast personalizat și evidențiază un marcator pe hartă.
+     *
+     * @param xCoordinate Coordonata X a marcatorului care va fi evidențiat.
+     * @param yCoordinate Coordonata Y a marcatorului care va fi evidențiat.
+     * @param markerView View-ul marcatorului care va fi evidențiat.
+     * @param mapContainer Layout-ul care conține harta și marcatorii.
+     */
     public void show(float xCoordinate, float yCoordinate, View markerView, ConstraintLayout mapContainer) {
         Toast toast = new Toast(getApplicationContext());
 

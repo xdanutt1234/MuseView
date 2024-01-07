@@ -1,3 +1,6 @@
+/**
+ * Activitate care gestionează scanarea codurilor QR pentru a accesa informații despre un muzeu.
+ */
 package com.myapp.museview;
 
 import android.content.Intent;
@@ -28,6 +31,13 @@ public class QRActivity extends CaptureActivityPortrait {
         intentIntegrator.setOrientationLocked(false);
         intentIntegrator.initiateScan();
     }
+    /**
+     * Metodă apelată la obținerea rezultatelor de la activitățile lansate pentru a prelua date.
+     *
+     * @param requestCode Codul cererii pentru activitatea lansată.
+     * @param resultCode  Codul rezultatului întors de activitatea lansată.
+     * @param data        Intentul care conține datele returnate de activitatea lansată.
+     */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -63,6 +73,12 @@ public class QRActivity extends CaptureActivityPortrait {
             super.onActivityResult(requestCode, resultCode, data);
         }
     }
+
+    /**
+     * Metodă pentru a naviga către activitatea detaliilor muzeului pe baza informațiilor obținute.
+     *
+     * @param museum Obiectul Museum care conține informații despre muzeu.
+     */
     private void toMuseum(Museum museum)
     {
         Intent intent = new Intent(this, MuseumDetailsActivity.class);

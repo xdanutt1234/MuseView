@@ -1,3 +1,6 @@
+/**
+ * Activitatea pentru afișarea listei de recenzii pentru un muzeu specific.
+ */
 package com.myapp.museview;
 
 import android.content.Intent;
@@ -36,6 +39,12 @@ public class ReviewListActivity extends AppCompatActivity {
             }
         });
     }
+    /**
+     * Metodă pentru căutarea recenziilor în baza de date pentru un anumit muzeu.
+     *
+     * @param idmuseum ID-ul muzeului pentru care se caută recenzii.
+     * @return Lista de recenzii găsite.
+     */
     private List<MuseumReview> performReviewSearch(int idmuseum)
     {   DatabaseHelper databaseHelper = new DatabaseHelper(this);
         SQLiteDatabase db = databaseHelper.getReadableDatabase();
@@ -74,6 +83,12 @@ public class ReviewListActivity extends AppCompatActivity {
 
         return list;
     }
+    /**
+     * Metodă pentru obținerea numelui unui utilizator bazat pe ID-ul său.
+     *
+     * @param idUser ID-ul utilizatorului pentru care se caută numele.
+     * @return Numele utilizatorului.
+     */
     private String getName(int idUser){
         DatabaseHelper databaseHelper = new DatabaseHelper(this);
         SQLiteDatabase db = databaseHelper.getReadableDatabase();

@@ -1,3 +1,16 @@
+
+/**
+ * MainActivity este activitatea principală a aplicației, care servește ca punct de intrare în aplicație.
+ * Utilizatorii pot naviga către alte activități, precum LoginActivity sau MenuActivity, în funcție de starea sesiunii.
+ * De asemenea, această activitate conține o metodă de populare a bazei de date în scopuri de dezvoltare.
+ *
+ * Utilizare:
+ * Această activitate este lansată automat la pornirea aplicației și furnizează butoane pentru navigare.
+ * Pentru a utiliza această activitate, puteți folosi metoda populate() pentru a adăuga date de testare în baza de date.
+ *
+ * @author Vladu Marian-Dumitru
+ * @version 1.0
+ */
 package com.myapp.museview;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -32,6 +45,11 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+    /**
+     * Metodă utilizată pentru a popula baza de date cu date de testare în scopuri de dezvoltare.
+     * A se folosi cu precauție, deoarece aceasta poate modifica datele existente din baza de date.
+     */
     private void populate()
     {
 
