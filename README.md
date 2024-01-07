@@ -17,7 +17,7 @@ Realizarea unei aplicatii cu aspect estetic si interfata usor de utilizat cu sco
 
 ## Arhitectura
 
-Arhitectura (subject to change, nu toate metodele si atributele au fost adaugate)
+Arhitectura
 ![Alt text](documentatie-ghid-utlizare-raport/diagrama_finala.png)
 
 
