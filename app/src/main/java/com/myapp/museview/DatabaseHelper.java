@@ -17,7 +17,7 @@ import java.sql.Statement;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String name = "BazaDate_Museview.db";
-    private static final int version = 48;
+    private static final int version = 49;
     public DatabaseHelper(@Nullable Context context) {
         super(context, name , null, version);
 
@@ -33,13 +33,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + "Email TEXT UNIQUE,"
                 + "Password TEXT);";
         db.execSQL(createTableQueryUser);
-        String createTableQueryMuseum = "CREATE TABLE Museum ("
+       /* String createTableQueryMuseum = "CREATE TABLE Museum ("
                 + "idMuseum INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + "museumName TEXT,"
                 + "museumDescription TEXT,"
                 + "mapLocation TEXT,"
                 + "imageName TEXT);";
-        db.execSQL(createTableQueryMuseum);
+        db.execSQL(createTableQueryMuseum);*/
         /*String createTableQueryMarker = "CREATE TABLE Marker (" +
                 "idMarker INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "markerName TEXT," +
@@ -99,7 +99,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + "User");
-        db.execSQL("DROP TABLE IF EXISTS " + "Museum");
+        //db.execSQL("DROP TABLE IF EXISTS " + "Museum");
         //db.execSQL("DROP TABLE IF EXISTS " + "Marker");
         db.execSQL("DROP TABLE IF EXISTS " + "MuseumReview");
 
