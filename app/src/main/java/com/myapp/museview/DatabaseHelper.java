@@ -26,7 +26,7 @@ import java.sql.Statement;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String name = "BazaDate_Museview.db";
-    private static final int version = 49;
+    private static final int version = 51;
 
     /**
      * Constructor
