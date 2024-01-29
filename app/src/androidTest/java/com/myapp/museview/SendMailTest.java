@@ -14,14 +14,13 @@ public class SendMailTest {
     @Test
     public void testSendMailTask() throws InterruptedException {
         final CountDownLatch latch = new CountDownLatch(1);
-        final boolean[] success = new boolean[1]; // Array to store success status
+        final boolean[] success = new boolean[1];
 
 
         new SendMail() {
             @Override
             protected void onPostExecute(Void aVoid) {
                 super.onPostExecute(aVoid);
-                // Set success status based on your AsyncTask behavior
                 success[0] = true;
                 latch.countDown(); // Release latch
             }
