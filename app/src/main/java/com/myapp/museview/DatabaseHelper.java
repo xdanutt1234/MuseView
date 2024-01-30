@@ -1,5 +1,5 @@
 /**
- * DatabaseHelper este o clasa ajutatoare care extinde SQLiteOpenHelper (deocamdata) pentru a creea si a versiona baza de date.
+ * DatabaseHelper este o clasa de debug ajutatoare care extinde SQLiteOpenHelper (deocamdata) pentru a creea si a versiona baza de date.
  *
  * Baza de date include tabelele User, Marker, Museum, MuseumReview.
  *
@@ -26,7 +26,7 @@ import java.sql.Statement;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String name = "BazaDate_Museview.db";
-    private static final int version = 51;
+    private static final int version = 54;
 
     /**
      * Constructor
@@ -38,7 +38,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     /**
-     * Metoda apelata initial.
+     * Metoda apelata initial pentru crearea tabelelor.
      * @param db Baza de date.
      */
 
@@ -52,14 +52,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + "Email TEXT UNIQUE,"
                 + "Password TEXT);";
         db.execSQL(createTableQueryUser);
-       /* String createTableQueryMuseum = "CREATE TABLE Museum ("
+       String createTableQueryMuseum = "CREATE TABLE Museum ("
                 + "idMuseum INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + "museumName TEXT,"
                 + "museumDescription TEXT,"
                 + "mapLocation TEXT,"
                 + "imageName TEXT);";
-        db.execSQL(createTableQueryMuseum);*/
-        /*String createTableQueryMarker = "CREATE TABLE Marker (" +
+        db.execSQL(createTableQueryMuseum);
+        String createTableQueryMarker = "CREATE TABLE Marker (" +
                 "idMarker INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "markerName TEXT," +
                 "markerDescription TEXT," +
@@ -67,7 +67,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 "yPos REAL," +
                 "museum INTEGER," +
                 "markerimage TEXT);";
-        db.execSQL(createTableQueryMarker);*/
+        db.execSQL(createTableQueryMarker);
 
         String createTableQueryMuseumReview = "CREATE TABLE MuseumReview (" +
                 "idMuseumReview INTEGER PRIMARY KEY AUTOINCREMENT," +
@@ -149,8 +149,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + "User");
-        //db.execSQL("DROP TABLE IF EXISTS " + "Museum");
-        //db.execSQL("DROP TABLE IF EXISTS " + "Marker");
+        db.execSQL("DROP TABLE IF EXISTS " + "Museum");
+        db.execSQL("DROP TABLE IF EXISTS " + "Marker");
         db.execSQL("DROP TABLE IF EXISTS " + "MuseumReview");
 
         onCreate(db);
