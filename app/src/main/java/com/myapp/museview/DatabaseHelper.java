@@ -26,7 +26,7 @@ import java.sql.Statement;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String name = "BazaDate_Museview.db";
-    private static final int version = 54;
+    private static final int version = 56;
 
     /**
      * Constructor
@@ -52,6 +52,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + "Email TEXT UNIQUE,"
                 + "Password TEXT);";
         db.execSQL(createTableQueryUser);
+
        String createTableQueryMuseum = "CREATE TABLE Museum ("
                 + "idMuseum INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + "museumName TEXT,"
@@ -59,6 +60,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + "mapLocation TEXT,"
                 + "imageName TEXT);";
         db.execSQL(createTableQueryMuseum);
+
         String createTableQueryMarker = "CREATE TABLE Marker (" +
                 "idMarker INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "markerName TEXT," +

@@ -35,7 +35,7 @@ public class SendMail extends AsyncTask<String, Void, Void> {
     protected Void doInBackground(String... params) {
         try {
 
-            URL url = new URL("http://10.233.35.58/send-email.php");
+            URL url = new URL("http://10.233.64.99/send-email.php");
 
 
             HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
