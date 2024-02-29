@@ -21,6 +21,8 @@ public class SendMailTest {
             @Override
             protected void onPostExecute(Void aVoid) {
                 super.onPostExecute(aVoid);
+
+
                 success[0] = true;
                 latch.countDown(); // Release latch
             }
