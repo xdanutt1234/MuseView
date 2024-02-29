@@ -1,3 +1,6 @@
+/**
+ * Activitate care gestionează scanarea codurilor QR pentru a accesa informații despre un marker într-un muzeu.
+ */
 package com.myapp.museview;
 
 import android.content.Intent;
@@ -26,6 +29,13 @@ public class QRMarkerActivity extends CaptureActivityPortrait {
         intentIntegrator.setOrientationLocked(false);
         intentIntegrator.initiateScan();
     }
+    /**
+     * Metodă apelată la obținerea rezultatelor de la activitățile lansate pentru a prelua date.
+     *
+     * @param requestCode Codul cererii pentru activitatea lansată.
+     * @param resultCode  Codul rezultatului întors de activitatea lansată.
+     * @param data        Intentul care conține datele returnate de activitatea lansată.
+     */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -61,14 +71,20 @@ public class QRMarkerActivity extends CaptureActivityPortrait {
                             cursor.getInt(cursor.getColumnIndexOrThrow("museum")),
                             cursor.getString(cursor.getColumnIndexOrThrow("markerimage"))));
                 }
-                toMuseum(intent,list.get(0));
+                toMap(intent,list.get(0));
 
             }
         } else {
             super.onActivityResult(requestCode, resultCode, data);
         }
     }
-    private void toMuseum(Intent intent, Marker marker)
+    /**
+     * Metodă pentru a naviga către activitatea hărții cu informații despre marker.
+     *
+     * @param intent Obiectul Intent care conține informații suplimentare pentru navigare.
+     * @param marker Obiectul Marker care conține informații despre marker.
+     */
+    private void toMap(Intent intent, Marker marker)
     {
         Intent intent1 = new Intent(this, MapActivity.class);
         intent1.putExtras(intent);

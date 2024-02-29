@@ -1,3 +1,6 @@
+/**
+ * Clasă care reprezintă o recenzie pentru un muzeu.
+ */
 package com.myapp.museview;
 
 public class MuseumReview {
@@ -28,6 +31,16 @@ public class MuseumReview {
         return comment;
     }
 
+    /**
+     * Constructor pentru obiectul MuseumReview cu specificarea numelui de utilizator.
+     *
+     * @param id       ID-ul recenziei.
+     * @param userid   ID-ul utilizatorului care a scris recenzia.
+     * @param museumid ID-ul muzeului pentru care s-a scris recenzia.
+     * @param rating   Rating-ul acordat muzeului în recenzie.
+     * @param comment  Comentariul asociat recenziei.
+     * @param username Numele utilizatorului care a scris recenzia.
+     */
     public MuseumReview(int id, int userid, int museumid, int rating, String comment, String username) {
         this.id = id;
         this.userid = userid;

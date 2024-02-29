@@ -1,3 +1,6 @@
+/**
+ * Activitatea pentru căutarea muzeelor și afișarea rezultatelor.
+ */
 package com.myapp.museview;
 
 import android.app.appsearch.SearchResult;
@@ -25,11 +28,21 @@ public class SearchActivity extends AppCompatActivity implements SearchAdapterMu
     RecyclerView recyclerViewResults;
     SearchAdapterMuseum searchAdapterMuseum;
     ImageView logo;
+    /**
+     * Metodă apelată atunci când butonul de detaliu este apăsat în adapter.
+     *
+     * @param museum Muzeul asociat butonului apăsat.
+     */
     @Override
     public void onButtonClick(Museum museum)
     {
         showDetails(museum);
     }
+    /**
+     * Metodă pentru afișarea detaliilor unui muzeu.
+     *
+     * @param museum Muzeul pentru care se afișează detaliile.
+     */
     private void showDetails(Museum museum)
     {
         Intent intent = new Intent(this, MuseumDetailsActivity.class);
@@ -76,6 +89,11 @@ public class SearchActivity extends AppCompatActivity implements SearchAdapterMu
             }
         });
     }
+    /**
+     * Metodă pentru efectuarea căutării.
+     *
+     * @param query Textul de căutare introdus de utilizator.
+     */
     private void performSearch(String query)
     {   Log.d("SearchActivity", "Performing search for query: " + query);
         searchAdapterMuseum.ClearList();
@@ -86,6 +104,12 @@ public class SearchActivity extends AppCompatActivity implements SearchAdapterMu
 
 
     }
+    /**
+     * Metodă pentru căutarea efectivă în baza de date a muzeelor.
+     *
+     * @param query Textul de căutare introdus de utilizator.
+     * @return Lista muzeelor găsite conform căutării.
+     */
     private List<Museum> performActualSearch(String query)
     {   Log.d("SearchActivity", "Performing actual search for query: " + query);
         DatabaseHelper databaseHelper = new DatabaseHelper(this);

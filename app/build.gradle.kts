@@ -17,10 +17,12 @@ android {
     }
 
    packaging{
-        resources.pickFirsts.add("LICENSE-2.0.txt")
-        resources.pickFirsts.add("META-INF/NOTICE.md")
+       resources.pickFirsts.add("LICENSE-2.0.txt")
+       resources.pickFirsts.add("META-INF/NOTICE.md")
        resources.pickFirsts.add("META-INF/LICENSE.md")
-    }
+       resources.excludes.add("mockito-extensions/org.mockito.plugins.MockMaker")
+   }
+
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -35,6 +37,7 @@ android {
 
 dependencies {
     /*implementation ("org.mariadb.jdbc:mariadb-java-client:2.7.4")*/
+    //implementation ("com.microsoft.sqlserver:mssql-jdbc:6.1.0.jre7")
     implementation ("androidx.sqlite:sqlite:2.4.0")
     implementation ("com.google.android.material:material:1.4.0")
     implementation("androidx.appcompat:appcompat:1.6.1")

@@ -1,3 +1,6 @@
+/**
+ * Adapter pentru afișarea recenziilor într-un RecyclerView.
+ */
 package com.myapp.museview;
 
 import android.util.Log;
@@ -21,12 +24,25 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ViewHolder
         this.reviews = reviews;
     }
 
+    /**
+     * Metodă apelată când un nou ViewHolder trebuie creat.
+     *
+     * @param parent   Grupul în care ViewHolder va fi plasat.
+     * @param viewType Tipul de vizualizare a elementului în RecyclerView.
+     * @return Un ViewHolder care conține o reprezentare a elementului.
+     */
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.review_item_layout, parent, false);
         return new ViewHolder(view);
     }
 
+    /**
+     * Metodă apelată pentru a lega datele recenziei la un ViewHolder specific.
+     *
+     * @param holder   ViewHolder la care datele trebuie să fie legate.
+     * @param position Poziția elementului în listă.
+     */
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         MuseumReview review = reviews.get(position);
@@ -41,6 +57,11 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ViewHolder
 
     }
 
+    /**
+     * Metodă care furnizează numărul total de elemente din setul de date.
+     *
+     * @return Numărul total de recenzii.
+     */
     @Override
     public int getItemCount() {
         return reviews.size();
@@ -50,6 +71,11 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ViewHolder
         public TextView commentTextView;
         public TextView userName;
 
+        /**
+         * Constructor pentru ViewHolder.
+         *
+         * @param itemView Vizualizarea elementului în RecyclerView.
+         */
         public ViewHolder(View itemView) {
             super(itemView);
             userName = itemView.findViewById(R.id.userTextView);

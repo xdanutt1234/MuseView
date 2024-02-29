@@ -1,3 +1,6 @@
+/**
+ * Activitatea care afișează detalii despre un muzeu.
+ */
 package com.myapp.museview;
 
 import android.content.Intent;
@@ -81,6 +84,12 @@ public class MuseumDetailsActivity extends AppCompatActivity {
         });
 
     }
+    /**
+     * Realizează căutarea recenziilor pentru un muzeu dat.
+     *
+     * @param idMuseum ID-ul muzeului pentru care se caută recenzii.
+     * @return Lista de recenzii pentru muzeu.
+     */
     private List<MuseumReview> performReviewSearch(int idmuseum)
     {   DatabaseHelper databaseHelper = new DatabaseHelper(this);
         SQLiteDatabase db = databaseHelper.getReadableDatabase();
@@ -110,6 +119,12 @@ public class MuseumDetailsActivity extends AppCompatActivity {
 
         return list;
     }
+    /**
+     * Calculează rating-ul mediu pentru o listă de recenzii.
+     *
+     * @param list Lista de recenzii pentru care se calculează media.
+     * @return Rezultatul calculului, inclusiv rating-ul mediu și numărul total de recenzii.
+     */
     private RatingResult averageRating(List<MuseumReview> list)
     {
         RatingResult xa = new RatingResult();

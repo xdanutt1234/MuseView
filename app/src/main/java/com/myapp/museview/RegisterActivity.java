@@ -1,3 +1,6 @@
+/**
+ * Activitate care gestionează procesul de înregistrare a unui utilizator în aplicație.
+ */
 package com.myapp.museview;
 
 import android.content.ContentValues;
@@ -80,7 +83,14 @@ public class RegisterActivity extends AppCompatActivity {
 
     }
 
-    private void startTransitionAnimation(final View transitionView, android.content.Intent intentie) {
+    /**
+     * Metodă pentru a iniția animația de tranziție și a deschide o nouă activitate.
+     *
+     * @param transitionView Vederea utilizată pentru animație.
+     * @param intent         Intentul care conține informații suplimentare pentru navigare.
+     */
+
+    private void startTransitionAnimation(final View transitionView, android.content.Intent intent) {
         transitionView.setVisibility(View.VISIBLE);
         transitionView.setTranslationY(-transitionView.getHeight());
         transitionView.animate()
@@ -89,12 +99,18 @@ public class RegisterActivity extends AppCompatActivity {
                 .withEndAction(new Runnable() {
                     @Override
                     public void run() {
-                        startActivity(intentie);
+                        startActivity(intent);
                     }
                 })
                 .start();
     }
 
+    /**
+     * Metodă pentru a verifica dacă adresa de email respectă un format specific.
+     *
+     * @param email Adresa de email de verificat.
+     * @return true dacă adresa de email este validă, false în caz contrar.
+     */
     public boolean emailCheck(String email) {
         Pattern pattern = Pattern.compile("^[A-Za-z0-9._]{1,16}+@{1}+[a-z]{1,7}\\.[a-z]{1,3}$");
         Matcher mail = pattern.matcher(email);

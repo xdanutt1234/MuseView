@@ -1,3 +1,7 @@
+/**
+ * Manager de sesiune pentru gestionarea informațiilor de autentificare.
+ * Acest manager utilizează SharedPreferences pentru a stoca și accesa datele sesiunii.
+ */
 package com.myapp.museview;
 
 import android.content.Context;
@@ -20,6 +24,12 @@ public class SessionManager {
         editor = pref.edit();
     }
 
+    /**
+     * Începe o sesiune de autentificare și stochează informațiile utilizatorului.
+     *
+     * @param userID   ID-ul utilizatorului
+     * @param username Numele de utilizator
+     */
     public void startSession(int userID, String username)
     {
         editor.putBoolean(KEY_LOGGED_IN, true);
@@ -27,20 +37,38 @@ public class SessionManager {
         editor.putString(KEY_USERNAME, username);
         editor.apply();
     }
+    /**
+     * Încheie sesiunea de autentificare și șterge toate informațiile stocate.
+     */
     public void endSession()
     {
         editor.clear();
         editor.apply();
     }
+    /**
+     * Verifică dacă există o sesiune de autentificare activă.
+     *
+     * @return true dacă există o sesiune activă, false altfel
+     */
     public boolean isLoggedIn()
     {
         return pref.getBoolean(KEY_LOGGED_IN, false);
     }
 
+    /**
+     * Obține ID-ul utilizatorului din sesiune.
+     *
+     * @return ID-ul utilizatorului sau -1 dacă nu există o sesiune activă
+     */
     public int getUserID()
     {
         return pref.getInt(KEY_USER_ID, -1);
     }
+    /**
+     * Obține numele de utilizator din sesiune.
+     *
+     * @return Numele de utilizator sau "NONE" dacă nu există o sesiune activă
+     */
     public String getUsername()
     {
         return pref.getString(KEY_USERNAME, "NONE");

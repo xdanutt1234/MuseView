@@ -1,3 +1,7 @@
+/**
+ * Activitatea pentru verificarea codului de confirmare și înregistrarea unui utilizator.
+ * Această activitate gestionează procesul de verificare a codului trimis prin email și adaugarea utilizatorului în baza de date.
+ */
 package com.myapp.museview;
 
 import android.content.ContentValues;

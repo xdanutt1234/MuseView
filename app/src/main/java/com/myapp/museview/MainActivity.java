@@ -1,3 +1,16 @@
+
+/**
+ * MainActivity este activitatea principală a aplicației, care servește ca punct de intrare în aplicație.
+ * Utilizatorii pot naviga către alte activități, precum LoginActivity sau MenuActivity, în funcție de starea sesiunii.
+ * De asemenea, această activitate conține o metodă de populare a bazei de date în scopuri de dezvoltare.
+ *
+ * Utilizare:
+ * Această activitate este lansată automat la pornirea aplicației și furnizează butoane pentru navigare.
+ * Pentru a utiliza această activitate, puteți folosi metoda populate() pentru a adăuga date de testare în baza de date.
+ *
+ * @author Vladu Marian-Dumitru
+ * @version 1.0
+ */
 package com.myapp.museview;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -32,6 +45,11 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+    /**
+     * Metodă utilizată pentru a popula baza de date cu date de testare în scopuri de dezvoltare.
+     * A se folosi cu precauție, deoarece aceasta poate modifica datele existente din baza de date.
+     */
     private void populate()
     {
 
@@ -43,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         databaseHelper.debugCreateMuseum("National Museum of Banat","The National Museum of Banat (Romanian: Muzeul Național al Banatului; abbreviated MNaB) is a museum in Timișoara, Romania, headquartered in Huniade Castle. It was founded in 1872 by the Society of History and Archeology of Banat (Romanian: Societatea de Istorie și Arheologie din Banat) on the initiative of the prefect of the then Temes County Zsigmond Ormós [hu]. It hosts the largest collection of archeological objects in Banat. The ground floor houses the 6,200-year-old Parța Neolithic Sanctuary. The museum includes departments for archeology, history and natural sciences. The museum also has a laboratory for conservation and preservation of objects of cultural heritage and history.",
                 "",
                 "museum2");
-        /*
+
         databaseHelper.debugCreateMarker("Punct de interes 1",
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse gravida sagittis justo, sit amet sodales libero tincidunt ac. Aliquam et libero nunc. Donec ut dapibus tellus. Vivamus non ante lobortis, finibus magna sed, commodo augue. Phasellus hendrerit sagittis rutrum. Suspendisse nisl massa, ornare consequat fermentum sit amet, consequat sit amet nisi. Curabitur dictum sodales volutpat.",
                 0.5f,0.5f,
@@ -69,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse gravida sagittis justo, sit amet sodales libero tincidunt ac. Aliquam et libero nunc. Donec ut dapibus tellus. Vivamus non ante lobortis, finibus magna sed, commodo augue. Phasellus hendrerit sagittis rutrum. Suspendisse nisl massa, ornare consequat fermentum sit amet, consequat sit amet nisi. Curabitur dictum sodales volutpat.",
                 0.525f,0.73f,
                 1,
-                "");*/
+                "");
         databaseHelper.debugCreateMuseum("Banat Village Museum","The Banat Village Museum (Romanian: Muzeul Satului Bănățean) is an open-air ethnographic museum in northeastern Timișoara, at the edge of the Green Forest. Spread over an area of 17 ha, the museum is designed as a traditional Banat village and includes peasant households belonging to various ethnic groups in Banat (Romanians, Slovaks, Swabians, Ukrainians, Hungarians, etc.), buildings with social function of the traditional village (town hall, school, church, etc.), folk art installations and workshops",
                 "",
                 "museum3");
